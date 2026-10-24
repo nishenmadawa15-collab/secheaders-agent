@@ -1,0 +1,10 @@
+__pycache__/
+*.pyc
+.venv/
+venv/
+.env
+.aws/
+*.log
+.aws-sam/
+.pytest_cache/
+out.json

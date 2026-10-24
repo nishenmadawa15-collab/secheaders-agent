@@ -1,0 +1,4 @@
+# Development / test dependencies for the SecHeaders agent.
+# Install with: pip install -r requirements-dev.txt
+pytest
+requests  # already a runtime dependency; listed here for a self-contained test env
