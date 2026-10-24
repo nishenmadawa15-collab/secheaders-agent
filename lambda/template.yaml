@@ -1,0 +1,25 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Transform: AWS::Serverless-2016-10-31
+Description: >
+  SecHeaders scan - a dependency-free AWS Lambda that audits a website's HTTP
+  security headers. Deploy with: sam build && sam deploy --guided
+
+Resources:
+  SecHeadersScanFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      FunctionName: secheaders-scan
+      Runtime: python3.12
+      Handler: lambda_function.lambda_handler
+      CodeUri: ./
+      Timeout: 15
+      MemorySize: 256
+      Description: Audits a URL's HTTP security headers and returns a graded report.
+
+Outputs:
+  SecHeadersScanFunction:
+    Description: Name of the deployed Lambda function (invoke it directly).
+    Value: !Ref SecHeadersScanFunction
+  SecHeadersScanFunctionArn:
+    Description: ARN of the deployed Lambda function.
+    Value: !GetAtt SecHeadersScanFunction.Arn
